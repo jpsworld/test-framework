@@ -1,0 +1,11 @@
+Feature: PayPal scenarios
+
+  Scenario Outline: Enter username and password
+    Given I am on PayPal website
+    When I click on Log In
+    Then I can enter <email> and <password>
+
+    Examples:
+      | email          | password  |
+      | test1@test.com | Test1234  |
+      | test2@test.org | Test1234  |
