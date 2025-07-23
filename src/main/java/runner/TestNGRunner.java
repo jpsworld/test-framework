@@ -1,7 +1,7 @@
 package runner;
 
-import cucumber.api.CucumberOptions;
-import cucumber.api.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 
 
 /**
@@ -9,7 +9,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
  */
 @CucumberOptions(
         glue = "steps",
-        format = {"json:target/cucumber.json", "html:target/site/cucumber-pretty"},
+        plugin = {"pretty","json:target/cucumber.json"},
         features = {"src/test/java/features"}
 )
 public class TestNGRunner extends AbstractTestNGCucumberTests {

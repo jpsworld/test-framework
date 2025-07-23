@@ -1,10 +1,11 @@
 package steps;
 
 import base.BasePage;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
 /**
  * Created by JP on 5/22/17.
  */
@@ -17,9 +18,8 @@ public class Hook extends BasePage {
     }
     @Before
     public void InitializeTest(){
-        String path = System.getProperty("user.dir")+"//src//main//resources//chromedriver";
-        System.setProperty("webdriver.chrome.driver", path);
-        driver = new ChromeDriver();
+        WebDriverManager.firefoxdriver().setup();
+        driver = new FirefoxDriver();
         driver.manage().window().maximize();
     }
 
